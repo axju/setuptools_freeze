@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
+import os
 from setuptools import setup
+
+
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+    README = readme.read()
 
 
 if __name__ == '__main__':
@@ -8,6 +13,9 @@ if __name__ == '__main__':
         author='Axel Juraske',
         author_email='axel.juraske@short-report.de',
         url='https://github.com/axju/setuptools_freeze',
+        license='MIT',
+        description='Integrate "pyinstaller" to "setuptools"',
+        long_description=README,
         packages=['setuptools_freeze'],
         package_dir={'': 'src'},
         include_package_data=True,

@@ -59,3 +59,7 @@ Test::
 Build::
 
   python setup.py build
+
+ToDo
+----
+1. create build folder if not exist

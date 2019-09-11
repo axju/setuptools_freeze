@@ -45,7 +45,7 @@ beautiful in future.
 
 Developer tools::
 
-  python -m pip install --upgrade pip wheel setuptools flake8 tox
+  python -m pip install --upgrade pip wheel setuptools flake8 tox twine
 
 Install::
 
@@ -59,6 +59,11 @@ Test::
 Build::
 
   python setup.py build
+  python setup.py sdist bdist_wheel
+
+Upload::
+
+  twine upload dist/*
 
 ToDo
 ----

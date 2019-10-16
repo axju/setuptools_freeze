@@ -30,6 +30,7 @@ OutputDir=..\\dist
 OutputBaseFilename={{#MyAppName}}-{{#MyAppVersion}}
 Compression=lzma
 SolidCompression=yes
+SetupIconFile={icon}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

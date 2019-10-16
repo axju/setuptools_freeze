@@ -8,6 +8,10 @@ def guid(dist, keyword, value):
     setattr(dist.metadata, 'guid', value)
 
 
+def icon(dist, keyword, value):
+    setattr(dist.metadata, 'icon', os.path.abspath(value))
+
+
 class PyInstallerCmd(Command):
 
     description = 'Freeze the package with pyinstaller'
@@ -47,7 +51,10 @@ class PyInstallerCmd(Command):
             self._pyinstaller(name, input_file)
 
     def _pyinstaller(self, name, target):
-        cmd = "pyinstaller --name {} {} {}".format(name, self.addopts, target)
+        icon = getattr(self.distribution.metadata, 'icon', '')
+        if icon:
+            icon = '--icon='+icon
+        cmd = "pyinstaller --name {} {} {} {}".format(name, self.addopts, icon, target)
         if os.system(cmd):
             raise Exception("PyInstaller failed!")
 
@@ -89,6 +96,7 @@ class InnoSetupCmd(Command):
             'url': self.distribution.metadata.url or '',
             'version': self.distribution.metadata.version or '0.0.0',
             'guid': self.guid or self.distribution.metadata.guid or 'ERROR',
+            'icon': getattr(self.distribution.metadata, 'icon', ''),
         }
 
     def _inno(self):

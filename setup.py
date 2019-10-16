@@ -31,8 +31,9 @@ if __name__ == '__main__':
                 'pyinstaller=setuptools_freeze.integration:PyInstallerCmd',
                 'inno=setuptools_freeze.integration:InnoSetupCmd',
             ],
-            'distutils.setup_keywords':[
-                'guid=setuptools_freeze.integration:guid'
+            'distutils.setup_keywords': [
+                'guid=setuptools_freeze.integration:guid',
+                'icon=setuptools_freeze.integration:icon'
             ]
         }
     )
